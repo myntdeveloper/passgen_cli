@@ -1,0 +1,74 @@
+# PassGen CLI
+
+A flexible and secure command-line password generator written in Go.
+
+## Features
+
+- Set any password length
+- Flexible inclusion of symbols, numbers, and uppercase letters
+- Generate one or several passwords in a single command
+- Colorized output for better readability in the terminal
+
+## Usage
+
+### Quick Start
+
+1. **Clone this repository**
+   ```shell
+   git clone https://github.com/myntdeveloper/passgen.git
+   cd passgen
+   ```
+
+2. **Build the binary**
+   ```shell
+   go build -o passgen ./cmd
+   ```
+
+3. **Generate a password with default settings**
+   ```shell
+   ./passgen
+   ```
+   This command outputs one 12-character password using only lowercase letters.
+
+### CLI Options
+
+| Flag   | Description                               | Default |
+|--------|-------------------------------------------|---------|
+| `-l`   | Length of password                        | 12      |
+| `-s`   | Include symbols                           | false   |
+| `-n`   | Include numbers                           | false   |
+| `-u`   | Include uppercase letters                 | false   |
+| `-c`   | Number of passwords to generate           | 1       |
+
+#### Example Usage
+
+Generate a 16-character password with symbols and numbers:
+```shell
+./passgen -l 16 -s -n
+```
+
+Generate 5 passwords, 20 characters each, including all character types:
+```shell
+./passgen -l 20 -s -n -u -c 5
+```
+
+## Directory Structure
+
+```
+passgen/
+├── cmd/                # Entry point of the CLI
+│   └── main.go
+├── internal/
+│   └── generator/      # Password generation logic
+│       └── generator.go
+├── go.mod
+└── README.md
+```
+
+## Prerequisites
+
+- Go 1.19 or newer
+
+---
+
+Built with ❤️ by **mynt**
